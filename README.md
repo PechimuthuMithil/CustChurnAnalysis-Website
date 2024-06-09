@@ -9,6 +9,7 @@ This is a simple website to perform Cust Churn Analysis.
 2. Add more
 
 ## Website flowchart
+![Website flow](https://github.com/PechimuthuMithil/CustChurnAnalysis-Website/assets/119656326/fe7049bc-e4e5-407d-9592-d9dae8c3846f)
 
 ## Database Schema
 ![ER-Diagram](https://github.com/PechimuthuMithil/CustChurnAnalysis-Website/assets/119656326/2d174da6-2b4d-4933-8a20-f9d4cb7f0734)  
