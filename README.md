@@ -6,7 +6,7 @@ This is a simple website to perform Cust Churn Analysis.
 
 ## Contributors
 1. Sample Contributor [`Email`](pechimuthumithil@iitgn.ac.in)
-2. Add more
+2. Complications that's why sample
 
 ## Website flowchart
 ![Website flow](https://github.com/PechimuthuMithil/CustChurnAnalysis-Website/assets/119656326/fe7049bc-e4e5-407d-9592-d9dae8c3846f)
