@@ -2,7 +2,7 @@
 This is a simple website to perform Cust Churn Analysis.
 
 ## Tools and Skills Used
-[![My Skills](https://skillicons.dev/icons?i=py,sqlite,html,css,flask,vscode,git)](https://skillicons.dev)  
+[![My Skills](https://skillicons.dev/icons?i=py,sqlite,html,css,flask,vscode,git,github,js,tensorflow)](https://skillicons.dev)  
 
 ## Contributors
 1. Sample Contributor [`Email`](pechimuthumithil@iitgn.ac.in)
@@ -22,10 +22,15 @@ Fist clone this repository and move into the cloned directory.
 git clone https://github.com/PechimuthuMithil/CustChurnAnalysis-Website.git
 cd CustChurnAnalysis-Website
 ```
+### Install all requirements
+To instll the requirements run the following command
+```bash
+pip install -r requirements.txt
+```  
 ### Setup Dataabse
 To set up the database, run the following command
 ```bash
-pip install -r requirements.txt
+path/to/python database_setup.py
 ```  
 
 ### Run the Flask Application
