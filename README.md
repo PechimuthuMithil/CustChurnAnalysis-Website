@@ -25,7 +25,7 @@ This is a simple website to perform Cust Churn Analysis.
 We have two entities namely user and files. We will store the file on the server (file handling) rather than in the database. In the database (sqlite) we will store where the file stored on the server and it was uploaded by which user. The file metadata can be used to tell more about the file that can be used to select a few files from the existing for analysis.
 
 ## Deploy the server
-Fist clone this repository and move into the cloned directory.
+First clone this repository and move into the cloned directory. Execute the following commands in the directory of your choice.  
 ```bash
 git clone https://github.com/PechimuthuMithil/CustChurnAnalysis-Website.git
 cd CustChurnAnalysis-Website
