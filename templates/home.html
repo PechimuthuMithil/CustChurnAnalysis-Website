@@ -102,6 +102,7 @@
 
         <div class="form_container">
             <h2>Upload CSV File</h2>
+            <p>Chosen filename should not have an undercosre `_`</p>
             <form method="POST" enctype="multipart/form-data" action="{{ url_for('home') }}">
                 <input type="file" name="file" accept=".csv" required>
                 <label for="metadata">Metadata:</label>
