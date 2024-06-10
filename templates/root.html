@@ -3,64 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Page</title>
+    <title>📈 Welcome!</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
+            padding-top: 80px;
+            font-family: 'Roboto', sans-serif;
         }
-        .container {
-            text-align: center;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 500px;
-        }
-        .title {
-            font-size: 2em;
-            margin-bottom: 10px;
-            color: #333;
-        }
-        .description {
-            font-size: 1.2em;
-            color: #666;
-            margin-bottom: 30px;
-        }
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
+        .jumbotron {
+            padding: 2rem 1rem;
+            margin-bottom: 2rem;
+            background-color: #e9ecef;
+            border-radius: 0.3rem;
+            font-family: 'Lora', serif;
         }
         .card {
-            background-color: #007bff;
-            color: white;
-            padding: 15px 25px;
-            text-align: center;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
+            margin-bottom: 20px;
         }
-        .card:hover {
-            background-color: #0056b3;
+        .card-title {
+            font-size: 1.5rem;
+            font-family: 'Lora', serif;
+            text-align: center;
+        }
+        .card-text {
+            font-size: 1rem;
+        }
+        .card-homework {
+            background-color: #e3f2fd; 
+        }
+        .card-resources {
+            background-color: #e8f5e9; 
+        }
+        .card-notes {
+            background-color: #caeeee; 
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 1rem 0;
+        }
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            color: #c1ebf3;
+        }
+        .arrow-left {
+            left: 32.18%;
+        }
+        .arrow-right {
+            left: 65.55%;
+        }
+        .container {
+            max-width: 1200px;
         }
     </style>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <div class="navbar-brand">Team Number - ISE, BMSCE</div>
+        </div>
+    </nav>
     <div class="container">
-        <div class="title">Welcome to Our Website</div>
-        <div class="description">This is a brief description of the website. Please login or sign up to continue.</div>
-        <div class="button-container">
-            <a href="#" class="card">Login</a>
-            <a href="#" class="card">Sign Up</a>
+        <div class="jumbotron text-center">
+            <h1 class="display-5">CUSTOMER CHURNING ANALYSIS WEBSITE</h1>
+            <p class="lead">This is a website aimed at business persons who want to quickly perform
+                some analysis on client retention. This website uses various machine learning strategies
+                for early client churn prediction. All you have to do is the following from left to right
+            </p>
+        </div>
+        <div class="row position-relative">
+            <div class="col-md-4">
+                <div class="card border-primary card-homework">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary"><i class="fas fa-sign-in-alt"></i> Login</h5>
+                        <a href="{{ url_for('login') }}">Login Here</a><br>
+                        <a href="{{ url_for('signup') }}">Signup Here</a>
+                    </div>                    
+                </div>
+            </div>
+            <span class="arrow arrow-left"><i class="fas fa-arrow-right"></i></span>
+            <div class="col-md-4">
+                <div class="card border-success card-resources">
+                    <div class="card-body">
+                        <h5 class="card-title text-success"><i class="fas fa-upload"></i> Upload CSV Files</h5>
+                        <p>Upload the appropriate csv files or choose from previous uploaded files for analysis.
+                            Please find a the input format <a href="">here</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <span class="arrow arrow-right"><i class="fas fa-arrow-right"></i></span>
+            <div class="col-md-4">
+                <div class="card border-info card-notes">
+                    <div class="card-body">
+                        <h5 class="card-title text-info"><i class="fas fa-chart-line"></i> Analytics</h5>
+                        <p> The models will return the predictions that will be presented as graphs for easy viewing.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

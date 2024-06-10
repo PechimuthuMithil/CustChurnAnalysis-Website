@@ -16,4 +16,24 @@ This is a simple website to perform Cust Churn Analysis.
 ### Basic Idea:  
 We have two entities namely user and files. We will store the file on the server (file handling) rather than in the database. In the database (sqlite) we will store where the file stored on the server and it was uploaded by which user. The file metadata can be used to tell more about the file that can be used to select a few files from the existing for analysis.
 
+## Deploy the server
+Fist clone this repository and move into the cloned directory.
+```bash
+git clone https://github.com/PechimuthuMithil/CustChurnAnalysis-Website.git
+cd CustChurnAnalysis-Website
+```
+### Setup Dataabse
+To set up the database, run the following command
+```bash
+pip install -r requirements.txt
+```  
+
+### Run the Flask Application
+Run the flask application however necessary. I created a venv and did the following
+```bash
+export FLASK_APP=app.py
+flask run
+```
+
+
 

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔐 Signup</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            padding-top: 80px;
+            font-family: 'Roboto', sans-serif;
+        }
+        .form_container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .jumbotron {
+            padding: 2rem 1rem;
+            margin-bottom: 2rem;
+            background-color: #e9ecef;
+            border-radius: 0.3rem;
+            font-family: 'Lora', serif;
+        }
+        .container {
+            max-width: 1200px;
+        }
+        h2 {
+            text-align: center;
+            color: #333333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555555;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #dddddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .alert {
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .alert-error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <div class="navbar-brand">Team Number - ISE, BMSCE</div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1 class="display-5">CUSTOMER CHURNING ANALYSIS WEBSITE</h1>
+        </div>
+        <h2>Signup</h2>
+        <div class="form_container">
+            <form method="POST" action="/signup" onsubmit="return validateForm()" enctype="multipart/form-data">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" onkeyup="checkPasswordMatch()" required>
+                <label for="re_password">Re-enter Password:</label>
+                <input type="password" id="re_password" name="re_password" onkeyup="checkPasswordMatch()" required>
+                <p id="password_match_message" style="display: none; color: red;">Passwords do not match</p>
+                <button type="submit">Signup</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    // function validateForm() {
+    //     var password = document.getElementById("password").value;
+    //     var re_password = document.getElementById("re_password").value;
+
+    //     if (password !== re_password && re_password !== "") {
+    //         // error_message.textContent = "Passwords do not match";
+    //         alert("Passwords do not match");
+    //         return false;
+    //     } else {
+    //         // error_message.textContent = "";
+    //         return true;
+    //     }
+    // }
+    function checkPasswordMatch() {
+        var password = document.getElementById("password").value;
+        var re_password = document.getElementById("re_password").value;
+        var messageElement = document.getElementById("password_match_message");
+
+        if (password !== re_password && re_password !== "") {
+            messageElement.style.display = "block"; // Show the message
+            document.getElementById("password").style.borderColor = "red";
+            document.getElementById("re_password").style.borderColor = "red";
+        } else {
+            messageElement.style.display = "none"; // Hide the message
+            document.getElementById("password").style.borderColor = "";
+            document.getElementById("re_password").style.borderColor = "";
+        }
+    }
+</script>
+</html>
