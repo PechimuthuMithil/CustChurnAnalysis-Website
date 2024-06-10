@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📤 Home</title>
+    <title>📊 Analysis</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -90,6 +90,9 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container">
             <div class="navbar-brand">Team Number - ISE, BMSCE</div>
+            <form method="POST" action="{{ url_for('home') }}">
+                <input type="submit" name="go2home" value="Home" class="btn btn-default">
+            </form>
             <form method="POST" action="{{ url_for('logout') }}">
                 <input type="submit" name="logout_button" value="Logout" class="btn btn-danger">
             </form>
@@ -99,55 +102,20 @@
         <div class="jumbotron text-center">
             <h1 class="display-5">CUSTOMER CHURNING ANALYSIS WEBSITE</h1>
         </div>
-
         <div class="form_container">
-            <h2>Upload CSV File</h2>
-            <form method="POST" enctype="multipart/form-data" action="{{ url_for('home') }}">
-                <input type="file" name="file" accept=".csv" required>
-                <label for="metadata">Metadata:</label>
-                <input type="text" id="metadata" name="metadata" placeholder="Enter file metadata">
-                <button type="submit">Upload</button>
-            </form>
-
-            {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                    <div class="alert alert-info">
-                        <ul>
-                            {% for message in messages %}
-                                <li>{{ message }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                {% endif %}
-            {% endwith %}
-        </div>
-
-        <div class="form_container">
-            <h2>Previously Uploaded Files</h2>
+            <h2>Selcted Files</h2>
             {% if files %}
-                <form method="POST" action="{{ url_for('analyse') }}">
                     <ul>
                         {% for file in files %}
                             <li>
-                                <input type="checkbox" name="selected_files" value="{{ file }}"> 
                                 {{ file['filename'] }}  -->  Metadata: {{ file['metadata'] }}   -->  Uploaded at: ({{ file['upload_time'] }})
                             </li>
                         {% endfor %}
                     </ul>
-                    <button type="submit">Submit Selected Files</button>
-                </form>
             {% else %}
-                <p>No previous uploads.</p>
+                <p>No selected files</p>
             {% endif %}
         </div>
     </div>
 </body>
-<script>
-    setTimeout(function() {
-        var flashMessage = document.querySelector('.alert');
-        if (flashMessage) {
-            flashMessage.style.display = 'none';
-        }
-    }, 3000);
-</script> 
 </html>

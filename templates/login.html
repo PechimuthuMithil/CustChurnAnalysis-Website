@@ -96,6 +96,17 @@
             <h1 class="display-5">CUSTOMER CHURNING ANALYSIS WEBSITE</h1>
         </div>
         <h2>Login</h2>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert alert-info">
+                    <ul>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endwith %}
         <div class="form_container">
             <form method="POST" action="/login">
                 <label for="email">Email:</label>
@@ -107,4 +118,12 @@
         </div>
     </div>
 </body>
+<script>
+    setTimeout(function() {
+        var flashMessage = document.querySelector('.alert');
+        if (flashMessage) {
+            flashMessage.style.display = 'none';
+        }
+    }, 3000);
+</script> 
 </html>
