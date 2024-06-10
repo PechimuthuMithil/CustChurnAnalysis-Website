@@ -106,7 +106,7 @@ def home():
     files = cursor.fetchall()
     conn.close()
     
-    files = [{'filename': os.path.basename(file['file_path']), 'metadata': file['file_metadata'], 'upload_time': file['upload_time']} for file in files]
+    files = [{'file_id': file['file_id'],'filename': os.path.basename(file['file_path']).split('_')[1], 'metadata': file['file_metadata'], 'upload_time': file['upload_time']} for file in files]
 
     return render_template('home.html', files=files)
 
@@ -119,7 +119,8 @@ def analyse():
     # USE THE FILES TO DO THE PRICESSING
     # CURRENT IDEA IS TO SAVETHE GRAPHS AS IMAGES AND RENDER INTO THE PAGE
 
-    return render_template('analysis.html', files=files)
+    print(files)
+    return files
 
 if __name__ == '__main__':
     app.run(debug=True)
