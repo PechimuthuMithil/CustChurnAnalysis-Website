@@ -83,7 +83,6 @@
             background-color: #f8d7da;
             color: #721c24;
         }
-
     </style>
 </head>
 <body>
@@ -103,18 +102,8 @@
             <h1 class="display-5">CUSTOMER CHURNING ANALYSIS WEBSITE</h1>
         </div>
         <div class="form_container">
-            <h2>Selcted Files</h2>
-            {% if files %}
-                    <ul>
-                        {% for file in files %}
-                            <li>
-                                {{ file['filename'] }}  -->  Metadata: {{ file['metadata'] }}   -->  Uploaded at: ({{ file['upload_time'] }})
-                            </li>
-                        {% endfor %}
-                    </ul>
-            {% else %}
-                <p>No selected files</p>
-            {% endif %}
+            <h2>Analysis Results</h2>
+            <img src="../static/plots/plot.png" alt="Analysis Plot" class="img-fluid">
         </div>
     </div>
 </body>
