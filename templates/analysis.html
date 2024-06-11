@@ -90,7 +90,10 @@
         <div class="container">
             <div class="navbar-brand">Team Number - ISE, BMSCE</div>
             <form method="POST" action="{{ url_for('home') }}">
-                <input type="submit" name="go2home" value="Home" class="btn btn-default">
+                <input type="submit" name="go2home" value="Home" class="btn btn-info">
+            </form>
+            <form method="POST" action="{{ url_for('download') }}">
+                <input type="submit" name="download" value="Download Predictions" class="btn btn-primary">
             </form>
             <form method="POST" action="{{ url_for('logout') }}">
                 <input type="submit" name="logout_button" value="Logout" class="btn btn-danger">

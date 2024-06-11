@@ -15,12 +15,12 @@ from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report, roc_curve, roc_auc_score
 from sklearn.ensemble import VotingClassifier
-from flask import Flask, render_template, redirect, url_for, request, flash, session
+from flask import Flask, render_template, redirect, url_for, request, flash, session, send_file
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'some_magical_secret_hahahaha'
-app.config['UPLOAD_FOLDER'] = './server_data/'
+app.config['UPLOAD_FOLDER'] = './user_upload_data/'
 app.config['CHURN_ENGINE_PATH'] = './churn_engine_dump/churn_engine.pkl'
 
 def get_db_connection():
@@ -200,7 +200,16 @@ def analyse():
     plt.savefig('./static/plots/plot.png')
     plt.show()
 
+    ## ADD THE PREDICTIONS TO THE DATFRAME AND SAVE AS A CSV
+    df["Churn_Yes"] = y_pred
+    df.to_csv("./engine_gen_data/result.csv")
     return render_template('analysis.html')
+
+@app.route('/download', methods=['POST'])
+def download():
+    return send_file("./engine_gen_data/result.csv", as_attachment=True)
+
+
 
 # def plot_confusion_matrix(cm, classes, title='Confusion Matrix', cmap=plt.cm.Blues):
 #     plt.imshow(cm, interpolation='nearest', cmap=cmap)
