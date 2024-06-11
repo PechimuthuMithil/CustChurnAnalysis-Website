@@ -89,6 +89,9 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container">
             <div class="navbar-brand">Team Number - ISE, BMSCE</div>
+            <form method="GET" action="{{ url_for('signup') }}">
+                <input type="submit" name="signup" value="New Here? Signup" class="btn btn-info">
+            </form>
         </div>
     </nav>
     <div class="container">
